@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>TestServlet</servlet-name>
+  	<servlet-class>com.netease.servlet.TestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TestServlet</servlet-name>
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  <!--servletconfig servlet  -->
+  <servlet>
+  	<servlet-name>ServletConfigServlet</servlet-name>
+  	<servlet-class>com.netease.server.config.TestServletConfig</servlet-class>
+  	<init-param>
+  		<param-name>data1</param-name>
+  		<param-value>value1</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>data2</param-name>
+  		<param-value>value2</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ServletConfigServlet</servlet-name>
+  	<url-pattern>/servlet/ServletConfig</url-pattern>
+  </servlet-mapping>
+  
+  <!--servletcontext  -->
+  <context-param>
+  	<param-name>globalData1</param-name>
+  	<param-value>123</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>globalData2</param-name>
+  	<param-value>1345</param-value>
+  </context-param>
+  
+  <!-- error page config -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error.html</location>
+  </error-page>
+  <!-- index page config -->
+  <welcome-file-list>
+  	<welcome-file>/index.html</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Cookie & Session -->
+	<servlet>
+		<servlet-name>user</servlet-name>
+		<servlet-class>com.netease.server.controller.UserServlet</servlet-class>
+		<init-param>
+			<param-name>tomcat</param-name>
+			<param-value>test for init-param</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>user</servlet-name>
+		<url-pattern>/user/specify</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
+	
+	<!-- request and forward -->
+	<servlet>
+		<servlet-name>ServletForward</servlet-name>
+		<servlet-class>com.netease.server.controller.ServletForward</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletForward</servlet-name>
+		<url-pattern>/forward</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServeltForwardExample</servlet-name>
+		<servlet-class>com.netease.server.controller.forwardExample</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServeltForwardExample</servlet-name>
+		<url-pattern>/forwardExample</url-pattern>
+	</servlet-mapping>
+	
+	<!-- ServletRedirect -->
+	<servlet>
+		<servlet-name>ServletRedirect</servlet-name>
+		<servlet-class>com.netease.server.controller.ServletRedirect</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletRedirect</servlet-name>
+		<url-pattern>/ServletRedirect</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ServletRedirectExample</servlet-name>
+		<servlet-class>com.netease.server.controller.ServletRedirectExample</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletRedirectExample</servlet-name>
+		<url-pattern>/ServletRedirectExample</url-pattern>
+	</servlet-mapping>
+	
+	<!-- log4j Config-->
+	<servlet>
+		<servlet-name>initServlet</servlet-name>
+		<servlet-class>com.netease.server.controller.InitServlet</servlet-class>
+		<init-param>
+			<param-name>log4j</param-name>
+			<param-value>resources/log4j.properties</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>initServlet</servlet-name>
+		<url-pattern>/initServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Filter -->
+	<filter>
+		<filter-name>TestFilter</filter-name>
+		<filter-class>com.netease.server.filer.TestFilter</filter-class>
+		<init-param>
+			<param-name>filterParam</param-name>
+			<param-value>11111</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>TestFilter</filter-name>
+		<url-pattern>/hello</url-pattern>
+	</filter-mapping>
+	
+	<!-- listener config -->
+	<listener>
+		<listener-class>com.netease.servlet.listener.TestListener</listener-class>
+	</listener>
+	
+	<!-- ConcurrentServlet -->
+	<servlet>
+		<servlet-name>ConCurrentServlet</servlet-name>
+		<servlet-class>com.netease.server.controller.ConcurrentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConCurrentServlet</servlet-name>
+		<url-pattern>/concurrent</url-pattern>
+	</servlet-mapping>
+	
+	<!-- JSP content -->
+	<servlet>
+		<servlet-name>Download</servlet-name>
+		<servlet-class>com.netease.servlet.DownloadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Download</servlet-name>
+		<url-pattern>/Download</url-pattern>
+	</servlet-mapping>
+</web-app>
