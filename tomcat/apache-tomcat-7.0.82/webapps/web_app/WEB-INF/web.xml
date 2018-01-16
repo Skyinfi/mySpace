@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>MainServelt</servlet-name>
+		<servlet-class>com.localhost.servlet.tst.Main</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MainServlet</servlet-name>
+		<url-pattern>/Servlet/main</url-pattern>
+	</servlet-mapping>
+	<!-- GreetServlet -->
+	<servlet>
+		<servlet-name>GreetServlet</servlet-name>
+		<servlet-class>com.localhost.servlet.tst.GreetServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GreetServlet</servlet-name>
+		<url-pattern>/Servlet/greet</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<param-name>username</param-name>
+		<param-value>sunjie</param-value>
+	</context-param>
+</web-app>
